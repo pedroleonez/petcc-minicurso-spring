@@ -22,4 +22,9 @@ public class PetianoController {
     public List<Petiano> getPetianos() {
         return repository.findAll();
     }
+
+    @PostMapping()
+    public Petiano createPetiano(Petiano pet) {
+        return this.repository.save(pet);
+    }
 }
