@@ -23,8 +23,13 @@ public class PetianoController {
         return repository.findAll();
     }
 
-    @PostMapping()
-    public Petiano createPetiano(Petiano pet) {
+    @PostMapping("/post")
+    public Petiano createPetiano(@RequestBody Petiano pet) {
         return this.repository.save(pet);
+    }
+
+    @GetMapping("/getFilter")
+    public List<Petiano> filterPetianos(@RequestParam String curso) {
+        return this.repository.findByCurso(curso);
     }
 }
